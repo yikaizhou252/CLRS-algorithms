@@ -42,3 +42,9 @@ def find_max_sub(func, nums=big.nums):
     res = func(nums)
     duration = time.time() - start_time
     print(f'It took {duration} sec. to find the max sub of {res} using {func.__name__}')
+
+def test_fib(func, i):
+    start_time = time.time()
+    res = func(i)
+    duration = time.time() - start_time
+    print(f'It took {duration} sec. to find {res} using {func.__name__}')

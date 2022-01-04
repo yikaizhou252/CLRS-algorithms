@@ -1,11 +1,15 @@
 import numpy as np
 import math
+from util import test_fib
 
 
 # this method uses the golden ratio
+# this method is NOT quick
 def quick_fib(i):
     eq = np.roots([1, -1, -1])
     golden, conj = eq[0], eq[1]
+
+    
     return int((golden**i + conj**i)/math.sqrt(5))
 
 
@@ -29,5 +33,8 @@ def rec_fib(i):
     else: return rec_fib(i - 1) + rec_fib(i - 2)
 
 
+test_fib(ite_fib, 100000)
 
-print(rec_fib(30))
+# test_fib(rec_fib, 40)
+# test_fib(rec_fib, 900)
+# print(rec_fib(900))
