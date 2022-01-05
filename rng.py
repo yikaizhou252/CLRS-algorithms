@@ -8,7 +8,6 @@ def rng():
 
 
 
-
 # this only works if it is a power of 2
 def rec_rando(a, b):
 
@@ -39,22 +38,10 @@ def betterRNG(a, b):
     while True:
         result = a
 
-        for i in range(1, n):
-            result += 2**(i-1) * random.randint(0,1)
+        for i in range(0, n):
+            result += 2**i * random.randint(0,1)
 
         if result <= b: return result
-
-def _m_random(b):
-    n = int(np.log2(b)) + 1
-    while True:
-        r = 0
-        for i in range(n):
-            r = 2*r + random.randint(0, 1)
-        if r <= b:
-            return r
-
-def m_random(a, b):
-    return _m_random(b - a) + a
 
 
 def test_suite(func, trials, low_bound=1, up_bound=10):
@@ -64,22 +51,16 @@ def test_suite(func, trials, low_bound=1, up_bound=10):
         arr.append(0)
 
     j = 0
-    # try:
+
     while j < trials:
         cur = func(low_bound, up_bound)
         if cur is not None: arr[cur - 1] = arr[cur - 1] + 1
         j += 1
 
-    # except Exception as e:
-    #     print(f'{e} problemo with: ', cur)
-
-
-    # print(arr)
     for i in range(len(arr)):
         print(f'number of {i + 1}: {arr[i]}')
 
-    # print(f'None count: {none_count}')
 
 
-test_suite(m_random, 100000, 1, 16)
-test_suite(rec_rando, 100000, 1, 16)
+test_suite(betterRNG, 100000, 1, 13)
+# test_suite(rec_rando, 100000, 1, 16)
