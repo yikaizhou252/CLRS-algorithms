@@ -1,7 +1,10 @@
 
 import math
-from util import pprint
+from util import test_sort
+import big
 name = "merge sort"
+
+
 def merge(lst: list, p: int, q: int, r: int):
 
     arr = lst[p:q] # p, p+1, ..., q-1
@@ -41,4 +44,4 @@ def merge_sort(lst):
     return sort(lst, p=0, r=len(lst))
 
 lst = [5,2,4,7,1,3,2,6,4.2]
-pprint(merge_sort, name)
+test_sort(merge_sort, name)

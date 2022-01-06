@@ -1,4 +1,5 @@
-from util import pprint, binsearch
+from util import test_sort, binsearch
+import big
 name = "insertion sort"
 def insertion_sort(lst: list):
     
@@ -35,4 +36,4 @@ def r_wrapper(lst):
     
 
 lst = [5,2,4,7,1,3,2,6,4.2]
-pprint(r_insertion_sort, "recursive insertion search")
+test_sort(insertion_sort, "recursive insertion search")
