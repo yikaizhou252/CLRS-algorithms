@@ -42,7 +42,7 @@ class Heap(list):
             temp = self[i]
             self[i] = self[j]
             self[j] = temp
-        else: raise IndexError(f'Swapping index out of heap range\n i: {i}, j: {j}, len(heap): {len(self)}')
+        else: raise IndexError(f'Swapping index out of range\n i: {i}, j: {j}, len(heap): {len(self)}')
 
 
     def max_heapify(self, i):

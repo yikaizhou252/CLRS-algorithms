@@ -7,7 +7,7 @@ import big
 def genlist(low, high, size):
     return list(random.randint(low, high, size=(size)))
 
-def test_sort(sort_fn, name, lst=genlist(0, 100, 1500000)):
+def test_sort(sort_fn, name, lst=genlist(0, 100, 10000)):
 
     err = False
     print(f'\nSorting: {lst}')
@@ -56,3 +56,4 @@ def test_fib(func, i):
     res = func(i)
     duration = time.time() - start_time
     print(f'It took {duration} sec. to find {res} using {func.__name__}')
+
