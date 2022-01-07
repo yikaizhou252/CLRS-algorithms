@@ -7,13 +7,13 @@ import big
 def genlist(low, high, size):
     return list(random.randint(low, high, size=(size)))
 
-def test_sort(sort_fn, name, lst=genlist(0, 100, 10000)):
+def test_sort(sort_fn, name, lst=genlist(0, 100, 100000)):
 
     err = False
     print(f'\nSorting: {lst}')
     start_time = time.time()
     lst = sort_fn(lst)
-    duration = time.time() - start_time
+    my_duration = time.time() - start_time
     print(f'Result: {lst}\n')
 
     for i in range(0, len(lst)-1):
@@ -21,7 +21,12 @@ def test_sort(sort_fn, name, lst=genlist(0, 100, 10000)):
         else: 
             err = True
             break
-    print(f'Encountered sorting errors') if err else print(f'It took {duration} sec. to sort {len(lst)} inputs with {name}\n')
+    
+    start_time = time.time()
+    lst.sort()
+    dur = time.time() - start_time
+    print(f'Encountered sorting errors at {lst[i]}, {lst[i+1]}') if err else print(f'It took {my_duration} sec. to sort {len(lst)} random inputs with {name}')
+    print(f'Python took {dur} sec.\n')
 
 def binsearch(nums, targ, index=0):
         
