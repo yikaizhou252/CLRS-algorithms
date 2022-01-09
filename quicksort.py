@@ -1,3 +1,4 @@
+from numpy.random.mtrand import randint, random
 from util import test_sort, genlist
 import big
 import statistics
@@ -48,6 +49,12 @@ def better_partion(arr, p, r):
     arr.insert(r, pivot)
     return partition(arr, p, r)
 
+
+def random_partition(arr, p, r):
+    i = randint(p, r)
+    swap(arr, i, r)
+    return partition(arr, p, r)
+    
 # def median_partition(arr, p, r):
 #     i = p - 1
 #     res = find_median(arr, p, r)
@@ -82,7 +89,7 @@ def quicksort(arr, p, r):
     # arr[q+1~r] >= arr[q]
 
     if p < r:
-        q = better_partion(arr, p, r)
+        q = random_partition(arr, p, r)
         quicksort(arr, p, q - 1) # exclude 
         quicksort(arr, q + 1, r) # press doubt
 
@@ -100,6 +107,6 @@ nums = [20,25,6,12,15,4,16,10]
 # q = better_partion(nums, 0, len(nums)-1)
 # print(nums, q)
 
-test_sort(wrapper, "quick sort", big.nums)
+test_sort(wrapper, "quick sort")
 
 

@@ -13,15 +13,11 @@ def counting_sort(arr, k):
     for i in range(0, len(arr)):
         b.append(0)
 
-    
     # first traversal
     # count the occurence of each number in arr
-    
-    
     for i in range(0, len(arr)):
         c[arr[i]] += 1 
     
-
     # second traversal
     # find the cumulation of the occurence of each number in arr that is smaller or equal to arr[i]
     for i in range(1, len(c)):
