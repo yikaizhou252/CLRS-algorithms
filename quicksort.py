@@ -100,7 +100,6 @@ nums = [20,25,6,12,15,4,16,10]
 # q = better_partion(nums, 0, len(nums)-1)
 # print(nums, q)
 
-lst = genlist(0, 100, 10000)
-test_sort(wrapper, "quick sort", genlist)
+test_sort(wrapper, "quick sort", big.nums)
 
 

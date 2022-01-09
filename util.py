@@ -7,7 +7,7 @@ import big
 def genlist(low, high, size):
     return list(random.randint(low, high, size=(size)))
 
-def test_sort(sort_fn, name, lst=genlist(0, 100, 100000)):
+def test_sort(sort_fn, name, lst=genlist(0, 100, 1000000)):
 
     err = False
     print(f'\nSorting: {lst}')
